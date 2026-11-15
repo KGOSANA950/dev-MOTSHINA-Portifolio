@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Your Name] | Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS VARIABLES --- */
+        :root {
+            --bg-color: #0a0a0a;
+            --text-main: #e0e0e0;
+            --text-muted: #888888;
+            --accent: #00ffcc; /* Neon Cyan */
+            --accent-glow: rgba(0, 255, 204, 0.3);
+            --grid-color: rgba(255, 255, 255, 0.05);
+            --font-mono: 'Fira Code', monospace;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        /* --- RESET & BASE --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: crosshair; /* Cool hacker vibe */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- GRID BACKGROUND --- */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background-image: 
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 50px 50px;
+            mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+            -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10%;
+            position: relative;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .status {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .status .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent);
+            animation: pulse 2s infinite;
+        }
+
+        h1 {
+            font-size: 5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+        }
+
+        .typewriter {
+            font-family: var(--font-mono);
+            color: var(--accent);
+            font-size: 1.2rem;
+            height: 30px;
+            margin-bottom: 30px;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 1.2rem;
+            background: var(--accent);
+            animation: blink 1s step-end infinite;
+            vertical-align: bottom;
+        }
+
+        /* --- 3D SPINNING OBJECT PLACEHOLDER --- */
+        .hero-visual {
+            width: 400px;
+            height: 400px;
+            perspective: 1000px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cube {
+            width: 150px;
+            height: 150px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: spin 10s linear infinite;
+        }
+
+        .face {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border: 1px solid var(--accent);
+            background: rgba(0, 255, 204, 0.05);
+            box-shadow: 0 0 20px var(--accent-glow) inset;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+
+        .front  { transform: translateZ(75px); }
+        .back   { transform: rotateY(180deg) translateZ(75px); }
+        .right  { transform: rotateY(90deg) translateZ(75px); }
+        .left   { transform: rotateY(-90deg) translateZ(75px); }
+        .top    { transform: rotateX(90deg) translateZ(75px); }
+        .bottom { transform: rotateX(-90deg) translateZ(75px); }
+
+        /* --- SECTIONS --- */
+        section {
+            padding: 100px 10%;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .section-title {
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--accent), transparent);
+        }
+
+        /* --- GRID LAYOUTS --- */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .info-item {
+            margin-bottom: 20px;
+        }
+
+        .info-label {
+            font-family: var(--font-mono);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* --- PROJECTS --- */
+        .project-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .project-item {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            background: rgba(255, 255, 255, 0.02);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .project-item:hover {
+            border-color: var(--accent);
+            background: rgba(0, 255, 204, 0.05);
+            transform: translateX(10px);
+        }
+
+        .project-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .project-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+        }
+
+        /* --- EXPERIENCE --- */
+        .exp-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .exp-date {
+            font-family: var(--font-mono);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .exp-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        .exp-role {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        /* --- SKILLS --- */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            color: var(--text-main);
+            transition: all 0.2s;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(0, 255, 204, 0.1);
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes spin {
+            0% { transform: rotateX(0) rotateY(0); }
+            100% { transform: rotateX(360deg) rotateY(360deg); }
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            h1 { font-size: 3rem; }
+            .hero { flex-direction: column; justify-content: center; text-align: center; }
+            .hero-visual { display: none; } /* Hide 3D cube on mobile */
+            .info-grid { grid-template-columns: 1fr; }
+            .exp-item { grid-template-columns: 1fr; gap: 5px; }
+            .project-item { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .nav-links { display: none; } /* Hide nav on mobile for simplicity */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Grid -->
+    <div class="grid-bg"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">// [YOUR_NAME]</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-text">
+            <div class="status">
+                <div class="dot"></div>
+                <span>Systems check: Online</span>
+            </div>
+            <h1>[Your Name]</h1>
+            <div class="typewriter">
+                <span id="type-text"></span><span class="cursor"></span>
+            </div>
+        </div>
+        
+        <!-- 3D Visual -->
+        <div class="hero-visual">
+            <div class="cube">
+                <div class="face front">INIT</div>
+                <div class="face back">SYS</div>
+                <div class="face right">DEV</div>
+                <div class="face left">UI</div>
+                <div class="face top">DATA</div>
+                <div class="face bottom">AI</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">01. About Me</h2>
+        <div class="info-grid">
+            <div>
+                <div class="info-item">
+                    <div class="info-label">Name</div>
+                    <div class="info-value">[Your Full Name]</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Institution</div>
+                    <div class="info-value">[Your University/School]</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Program</div>
+                    <div class="info-value">Computer Science, Undergraduate</div>
+                </div>
+            </div>
+            <div>
+                <div class="info-item">
+                    <div class="info-label">Concentration</div>
+                    <div class="info-value">Artificial Intelligence</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Interests</div>
+                    <div class="info-value">Coding, Design, Gaming, Open Source</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">02. Projects</h2>
+        <div class="project-list">
+            <!-- Project 1 -->
+            <a href="#" class="project-item" style="text-decoration: none; color: inherit;">
+                <div>
+                    <div class="project-name">MathLock</div>
+                    <div class="project-desc">Premium UI calculator with simulated paywall and form validation.</div>
+                </div>
+                <div class="project-link">View Project ↗</div>
+            </a>
+            <!-- Project 2 -->
+            <a href="#" class="project-item" style="text-decoration: none; color: inherit;">
+                <div>
+                    <div class="project-name">SkyCast Weather</div>
+                    <div class="project-desc">Immersive weather dashboard with dynamic backgrounds and Lottie animations.</div>
+                </div>
+                <div class="project-link">View Project ↗</div>
+            </a>
+            <!-- Project 3 -->
+            <a href="#" class="project-item" style="text-decoration: none; color: inherit;">
+                <div>
+                    <div class="project-name">HeartTrace</div>
+                    <div class="project-desc">Remote patient monitoring portal with Chart.js and CSV export.</div>
+                </div>
+                <div class="project-link">View Project ↗</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2 class="section-title">03. Experience</h2>
+        
+        <div class="exp-item">
+            <div class="exp-date">June 2024 – Present</div>
+            <div>
+                <div class="exp-title">Company Name</div>
+                <div class="exp-role">Frontend Developer Intern</div>
+                <p style="color: #888; font-size: 0.9rem; margin-top: 10px;">
+                    Built responsive UI components and optimized web performance using Vanilla JS and modern CSS.
+                </p>
+            </div>
+        </div>
+
+        <div class="exp-item">
+            <div class="exp-date">Jan 2024 – May 2024</div>
+            <div>
+                <div class="exp-title">University Lab</div>
+                <div class="exp-role">Research Assistant</div>
+                <p style="color: #888; font-size: 0.9rem; margin-top: 10px;">
+                    Assisted in data visualization and web scraping for a machine learning project.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">04. Skills</h2>
+        <div class="skills-container">
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+            <span class="skill-tag">JavaScript (ES6+)</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Git/GitHub</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">UI/UX Design</span>
+            <span class="skill-tag">Figma</span>
+            <span class="skill-tag">REST APIs</span>
+            <span class="skill-tag">Chart.js</span>
+            <span class="skill-tag">Responsive Design</span>
+        </div>
+    </section>
+
+    <!-- Typewriter Script -->
+    <script>
+        const textElement = document.getElementById('type-text');
+        const phrases = [
+            "Software Engineer.",
+            "Frontend Developer.",
+            "UI/UX Enthusiast.",
+            "Problem Solver."
+        ];
+        
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 100;
+
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            
+            if (isDeleting) {
+                textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+                typingSpeed = 50; // Delete faster
+            } else {
+                textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+                typingSpeed = 100;
+            }
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isDeleting = true;
+                typingSpeed = 2000; // Pause at end of word
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typingSpeed = 500; // Pause before new word
+            }
+
+            setTimeout(type, typingSpeed);
+        }
+
+        // Start typing effect
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(type, 1000);
+        });
+    </script>
+</body>
+</html>
