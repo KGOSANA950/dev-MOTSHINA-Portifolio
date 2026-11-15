@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -233,7 +233,7 @@
         </div>
     </section>
 
-    <!-- NEW: Contact Section with Form -->
+    <!-- Contact Section with Form -->
     <section id="contact">
         <h2 class="section-title">06. Contact</h2>
         
@@ -266,7 +266,11 @@
 
             <!-- Right Side: Form -->
             <div class="contact-form-container">
-                <form id="contactForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+                <!-- YOUR FORMSPREE ID IS NOW ADDED HERE -->
+                <form id="contactForm" action="https://formspree.io/f/xaeoeezk" method="POST">
+                    <!-- Hidden field for email subject -->
+                    <input type="hidden" name="_subject" value="New Message from Portfolio Website!">
+                    
                     <div class="form-row">
                         <div class="form-group">
                             <label>Your Name</label>
@@ -292,7 +296,7 @@
         </div>
     </section>
 
-    <!-- NEW: Floating Chat Box -->
+    <!-- Floating Chat Box -->
     <button class="chat-bubble" id="chatBubble">
         <i class="fas fa-comment-dots"></i>
     </button>
