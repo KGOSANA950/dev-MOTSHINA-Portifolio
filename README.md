@@ -1,17 +1,17 @@
-# dev-MOTSHINA-Portfolio
+# 🚀 Ronney Motšhina | Portfolio
 
-A modern, interactive personal portfolio website built entirely with **Vanilla HTML, CSS, and JavaScript**. This project showcases a "cyberpunk" aesthetic, complete with a dynamic grid background, neon accents, pure CSS 3D animations, and a custom typewriter effect.
+A modern, interactive personal portfolio website built entirely with **Vanilla HTML, CSS, and JavaScript**. This project showcases a "cyberpunk" aesthetic, complete with a dynamic grid background, neon cyan accents, pure CSS 3D animations, and a custom typewriter effect.
 
-## 🚀 Live Demo
-👉 **[Click here to view the Live Portfolio](https://kgosana950.github.io/dev-MOTSHINA-Portfolio/)**
+## 🌐 Live Demo
+👉 **[View the Live Portfolio Here](https://kgosana950.github.io/dev-MOTSHINA-Portfolio/)**
 
 ## ✨ Features
 
-*   **Cyberpunk Aesthetic:** Dark mode with neon cyan (`#00ffcc`) accents and a custom grid background.
-*   **Pure CSS 3D Cube:** A fully interactive, spinning 3D cube created without any external 3D libraries (like Three.js).
-*   **Dynamic Typewriter Effect:** JavaScript-powered text animation in the hero section cycling through different roles.
+*   **Cyberpunk Aesthetic:** Dark mode with neon cyan (`#00ffcc`) accents and a custom animated grid background.
+*   **Pure CSS 3D Cube:** A fully interactive, spinning 3D cube created without any external 3D libraries (like Three.js). Each face displays a core technology (C++, C#, JS, SQL, ESP32, ROS).
+*   **Dynamic Typewriter Effect:** JavaScript-powered text animation in the hero section cycling through different roles (Full-Stack Developer, Embedded Systems Engineer, etc.).
 *   **Responsive Design:** Fully fluid layout that adapts seamlessly to desktop, tablet, and mobile screens.
-*   **Scroll Animations:** Smooth scrolling navigation and subtle hover states on projects and skills.
+*   **Projects Showcase:** Direct links to live web applications (Troll Calculator, SkyCast Weather, HeartTrace Portal).
 
 ## 🛠️ Tech Stack
 
@@ -24,5 +24,5 @@ A modern, interactive personal portfolio website built entirely with **Vanilla H
 
 ```text
 /dev-MOTSHINA-Portfolio
-│── index.html       # Main HTML structure
+│── index.html       # Main HTML structure (contains all CSS & JS)
 │── README.md        # Project documentation
