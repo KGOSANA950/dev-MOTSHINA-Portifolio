@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Your Name] | Portfolio</title>
+    <title>Ronney Motšhina | Computer Systems Engineer</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +28,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            cursor: crosshair; /* Cool hacker vibe */
+            cursor: crosshair;
         }
 
         body {
@@ -101,7 +101,7 @@
         }
 
         .hero-text {
-            max-width: 600px;
+            max-width: 700px;
         }
 
         .status {
@@ -124,11 +124,25 @@
         }
 
         h1 {
-            font-size: 5rem;
+            font-size: 4.5rem;
             font-weight: 800;
             line-height: 1.1;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             letter-spacing: -2px;
+        }
+
+        .role-title {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .bio {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            max-width: 600px;
         }
 
         .typewriter {
@@ -148,7 +162,7 @@
             vertical-align: bottom;
         }
 
-        /* --- 3D SPINNING OBJECT PLACEHOLDER --- */
+        /* --- 3D SPINNING OBJECT --- */
         .hero-visual {
             width: 400px;
             height: 400px;
@@ -163,7 +177,7 @@
             height: 150px;
             position: relative;
             transform-style: preserve-3d;
-            animation: spin 10s linear infinite;
+            animation: spin 15s linear infinite;
         }
 
         .face {
@@ -211,7 +225,7 @@
             background: linear-gradient(to right, var(--accent), transparent);
         }
 
-        /* --- GRID LAYOUTS --- */
+        /* --- ABOUT GRID --- */
         .info-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -244,13 +258,15 @@
 
         .project-item {
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 20px;
+            padding: 24px;
             border-radius: 8px;
             transition: all 0.3s;
             background: rgba(255, 255, 255, 0.02);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            text-decoration: none;
+            color: inherit;
         }
 
         .project-item:hover {
@@ -260,61 +276,69 @@
         }
 
         .project-name {
-            font-size: 1.2rem;
-            font-weight: 600;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 8px;
         }
 
         .project-desc {
             color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-top: 5px;
+            font-size: 0.95rem;
+            max-width: 600px;
         }
 
         .project-link {
             color: var(--accent);
-            text-decoration: none;
             font-family: var(--font-mono);
             font-size: 0.9rem;
+            white-space: nowrap;
         }
 
         /* --- EXPERIENCE --- */
         .exp-item {
             display: grid;
-            grid-template-columns: 200px 1fr;
+            grid-template-columns: 250px 1fr;
             gap: 20px;
-            padding: 20px 0;
+            padding: 25px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .exp-date {
             font-family: var(--font-mono);
             color: var(--text-muted);
-            font-size: 0.85rem;
+            font-size: 0.9rem;
         }
 
         .exp-title {
-            font-weight: 600;
-            font-size: 1.1rem;
+            font-weight: 700;
+            font-size: 1.2rem;
             color: var(--text-main);
         }
 
         .exp-role {
             color: var(--accent);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        .exp-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
         }
 
         /* --- SKILLS --- */
         .skills-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
         }
 
         .skill-tag {
             font-family: var(--font-mono);
             font-size: 0.85rem;
-            padding: 8px 16px;
+            padding: 10px 18px;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 4px;
@@ -326,6 +350,59 @@
             border-color: var(--accent);
             color: var(--accent);
             background: rgba(0, 255, 204, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* --- CONTACT --- */
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .contact-container p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+            box-shadow: 0 0 10px rgba(0, 255, 204, 0.1);
+        }
+
+        .contact-btn:hover {
+            background: rgba(0, 255, 204, 0.1);
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.4);
+        }
+
+        .socials {
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .socials a {
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+
+        .socials a:hover {
+            color: var(--accent);
         }
 
         /* --- ANIMATIONS --- */
@@ -348,12 +425,13 @@
         /* --- RESPONSIVE --- */
         @media (max-width: 900px) {
             h1 { font-size: 3rem; }
-            .hero { flex-direction: column; justify-content: center; text-align: center; }
-            .hero-visual { display: none; } /* Hide 3D cube on mobile */
+            .hero { flex-direction: column; justify-content: center; text-align: center; padding-top: 100px; }
+            .hero-visual { display: none; }
+            .bio { margin: 0 auto 30px auto; }
             .info-grid { grid-template-columns: 1fr; }
             .exp-item { grid-template-columns: 1fr; gap: 5px; }
-            .project-item { flex-direction: column; align-items: flex-start; gap: 10px; }
-            .nav-links { display: none; } /* Hide nav on mobile for simplicity */
+            .project-item { flex-direction: column; align-items: flex-start; gap: 15px; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
@@ -364,12 +442,13 @@
 
     <!-- Navigation -->
     <nav>
-        <div class="logo">// [YOUR_NAME]</div>
+        <div class="logo">// RONNEY.DEV</div>
         <div class="nav-links">
             <a href="#about">About</a>
             <a href="#projects">Projects</a>
             <a href="#experience">Experience</a>
             <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
         </div>
     </nav>
 
@@ -380,7 +459,12 @@
                 <div class="dot"></div>
                 <span>Systems check: Online</span>
             </div>
-            <h1>[Your Name]</h1>
+            <h1>Ronney Motšhina</h1>
+            <div class="role-title">Computer Systems Engineer</div>
+            <p class="bio">
+                I build complete software and hardware solutions. From interactive web applications 
+                to C++ desktop software and ESP32 robotics, I turn complex logic into working systems.
+            </p>
             <div class="typewriter">
                 <span id="type-text"></span><span class="cursor"></span>
             </div>
@@ -389,12 +473,12 @@
         <!-- 3D Visual -->
         <div class="hero-visual">
             <div class="cube">
-                <div class="face front">INIT</div>
-                <div class="face back">SYS</div>
-                <div class="face right">DEV</div>
-                <div class="face left">UI</div>
-                <div class="face top">DATA</div>
-                <div class="face bottom">AI</div>
+                <div class="face front">C++</div>
+                <div class="face back">C#</div>
+                <div class="face right">JS</div>
+                <div class="face left">SQL</div>
+                <div class="face top">ESP32</div>
+                <div class="face bottom">ROS</div>
             </div>
         </div>
     </header>
@@ -406,25 +490,29 @@
             <div>
                 <div class="info-item">
                     <div class="info-label">Name</div>
-                    <div class="info-value">[Your Full Name]</div>
+                    <div class="info-value">Ronney Motšhina</div>
                 </div>
                 <div class="info-item">
                     <div class="info-label">Institution</div>
-                    <div class="info-value">[Your University/School]</div>
+                    <div class="info-value">Tshwane University of Technology (TUT)</div>
                 </div>
                 <div class="info-item">
                     <div class="info-label">Program</div>
-                    <div class="info-value">Computer Science, Undergraduate</div>
+                    <div class="info-value">BEng Tech in Computer Systems Engineering</div>
                 </div>
             </div>
             <div>
                 <div class="info-item">
-                    <div class="info-label">Concentration</div>
-                    <div class="info-value">Artificial Intelligence</div>
+                    <div class="info-label">Specialty</div>
+                    <div class="info-value">Software, Web & Embedded Systems</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Location</div>
+                    <div class="info-value">Pretoria, South Africa</div>
                 </div>
                 <div class="info-item">
                     <div class="info-label">Interests</div>
-                    <div class="info-value">Coding, Design, Gaming, Open Source</div>
+                    <div class="info-value">Full-stack dev, ESP32 robotics, AI, Linux, Hardware</div>
                 </div>
             </div>
         </div>
@@ -435,26 +523,28 @@
         <h2 class="section-title">02. Projects</h2>
         <div class="project-list">
             <!-- Project 1 -->
-            <a href="#" class="project-item" style="text-decoration: none; color: inherit;">
+            <a href="https://kgosana950.github.io/Calculator/" target="_blank" class="project-item">
                 <div>
-                    <div class="project-name">MathLock</div>
-                    <div class="project-desc">Premium UI calculator with simulated paywall and form validation.</div>
+                    <div class="project-name">Troll Calculator</div>
+                    <div class="project-desc">A sleek, interactive web calculator with a simulated premium paywall. Features fake payment gateways and push notifications designed to trick the user before revealing the result.</div>
                 </div>
                 <div class="project-link">View Project ↗</div>
             </a>
+            
             <!-- Project 2 -->
-            <a href="#" class="project-item" style="text-decoration: none; color: inherit;">
+            <a href="https://kgosana950.github.io/skycast-weather-website/" target="_blank" class="project-item">
                 <div>
                     <div class="project-name">SkyCast Weather</div>
-                    <div class="project-desc">Immersive weather dashboard with dynamic backgrounds and Lottie animations.</div>
+                    <div class="project-desc">An immersive weather dashboard pulling real-time data. Features dynamic backgrounds, 24-hour and 7-day forecasts, and a clean, modern UI.</div>
                 </div>
                 <div class="project-link">View Project ↗</div>
             </a>
+            
             <!-- Project 3 -->
-            <a href="#" class="project-item" style="text-decoration: none; color: inherit;">
+            <a href="https://kgosana950.github.io/hearttrace-patient-portal/" target="_blank" class="project-item">
                 <div>
-                    <div class="project-name">HeartTrace</div>
-                    <div class="project-desc">Remote patient monitoring portal with Chart.js and CSV export.</div>
+                    <div class="project-name">HeartTrace Portal</div>
+                    <div class="project-desc">A web-based remote patient monitoring portal designed to track and display vital health metrics in a secure, user-friendly dashboard.</div>
                 </div>
                 <div class="project-link">View Project ↗</div>
             </a>
@@ -466,24 +556,24 @@
         <h2 class="section-title">03. Experience</h2>
         
         <div class="exp-item">
-            <div class="exp-date">June 2024 – Present</div>
+            <div class="exp-date">Feb 2025 – June 2025</div>
             <div>
-                <div class="exp-title">Company Name</div>
-                <div class="exp-role">Frontend Developer Intern</div>
-                <p style="color: #888; font-size: 0.9rem; margin-top: 10px;">
-                    Built responsive UI components and optimized web performance using Vanilla JS and modern CSS.
-                </p>
+                <div class="exp-title">Tshwane University of Technology</div>
+                <div class="exp-role">Volunteer Academic Tutor</div>
+                <div class="exp-desc">
+                    Assisted students in understanding complex engineering concepts, programming logic, and hardware fundamentals.
+                </div>
             </div>
         </div>
 
         <div class="exp-item">
-            <div class="exp-date">Jan 2024 – May 2024</div>
+            <div class="exp-date">2024 – Present</div>
             <div>
-                <div class="exp-title">University Lab</div>
-                <div class="exp-role">Research Assistant</div>
-                <p style="color: #888; font-size: 0.9rem; margin-top: 10px;">
-                    Assisted in data visualization and web scraping for a machine learning project.
-                </p>
+                <div class="exp-title">Solo Developer & Student Projects</div>
+                <div class="exp-role">Full-Stack & Embedded Developer</div>
+                <div class="exp-desc">
+                    Designed and built a C++/CLI Banking App, an ESP32-CAM Motion Detection system, and deployed three live web applications (MathLock, SkyCast, HeartTrace).
+                </div>
             </div>
         </div>
     </section>
@@ -491,19 +581,54 @@
     <!-- Skills Section -->
     <section id="skills">
         <h2 class="section-title">04. Skills</h2>
-        <div class="skills-container">
-            <span class="skill-tag">HTML5</span>
-            <span class="skill-tag">CSS3</span>
-            <span class="skill-tag">JavaScript (ES6+)</span>
-            <span class="skill-tag">React</span>
-            <span class="skill-tag">Git/GitHub</span>
-            <span class="skill-tag">Node.js</span>
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">UI/UX Design</span>
-            <span class="skill-tag">Figma</span>
-            <span class="skill-tag">REST APIs</span>
-            <span class="skill-tag">Chart.js</span>
-            <span class="skill-tag">Responsive Design</span>
+        
+        <div style="margin-bottom: 30px;">
+            <h3 style="color: #fff; margin-bottom: 15px; font-size: 1.1rem;">Frontend Web</h3>
+            <div class="skills-container">
+                <span class="skill-tag">HTML5</span>
+                <span class="skill-tag">CSS3</span>
+                <span class="skill-tag">JavaScript (ES6+)</span>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 30px;">
+            <h3 style="color: #fff; margin-bottom: 15px; font-size: 1.1rem;">Programming Languages</h3>
+            <div class="skills-container">
+                <span class="skill-tag">C++</span>
+                <span class="skill-tag">C#</span>
+                <span class="skill-tag">C</span>
+                <span class="skill-tag">Python (Basic)</span>
+                <span class="skill-tag">Java (Basic)</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">Assembly</span>
+            </div>
+        </div>
+
+        <div>
+            <h3 style="color: #fff; margin-bottom: 15px; font-size: 1.1rem;">Tools & Frameworks</h3>
+            <div class="skills-container">
+                <span class="skill-tag">Visual Studio</span>
+                <span class="skill-tag">.NET</span>
+                <span class="skill-tag">Git & GitHub</span>
+                <span class="skill-tag">Linux (Ubuntu)</span>
+                <span class="skill-tag">ROS</span>
+                <span class="skill-tag">Proteus 8</span>
+                <span class="skill-tag">Unity</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">05. Contact</h2>
+        <div class="contact-container">
+            <p>Currently open to internship and graduate opportunities.</p>
+            <a href="mailto:mochinaronney099@gmail.com" class="contact-btn">Say Hello ↗</a>
+            
+            <div class="socials">
+                <a href="https://github.com/KGOSANA950" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/motshina-ronney-65b81a314" target="_blank">LinkedIn</a>
+            </div>
         </div>
     </section>
 
@@ -511,10 +636,10 @@
     <script>
         const textElement = document.getElementById('type-text');
         const phrases = [
-            "Software Engineer.",
-            "Frontend Developer.",
-            "UI/UX Enthusiast.",
-            "Problem Solver."
+            "Full-Stack Developer.",
+            "Embedded Systems Engineer.",
+            "C++ & C# Programmer.",
+            "Web UI Designer."
         ];
         
         let phraseIndex = 0;
@@ -528,7 +653,7 @@
             if (isDeleting) {
                 textElement.textContent = currentPhrase.substring(0, charIndex - 1);
                 charIndex--;
-                typingSpeed = 50; // Delete faster
+                typingSpeed = 50;
             } else {
                 textElement.textContent = currentPhrase.substring(0, charIndex + 1);
                 charIndex++;
@@ -537,17 +662,16 @@
 
             if (!isDeleting && charIndex === currentPhrase.length) {
                 isDeleting = true;
-                typingSpeed = 2000; // Pause at end of word
+                typingSpeed = 2000;
             } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
                 phraseIndex = (phraseIndex + 1) % phrases.length;
-                typingSpeed = 500; // Pause before new word
+                typingSpeed = 500;
             }
 
             setTimeout(type, typingSpeed);
         }
 
-        // Start typing effect
         document.addEventListener('DOMContentLoaded', () => {
             setTimeout(type, 1000);
         });
