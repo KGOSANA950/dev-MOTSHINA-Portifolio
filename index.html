@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <!-- Link to your external CSS file -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -187,7 +190,6 @@
     <section id="certs">
         <h2 class="section-title">05. Certifications</h2>
         <div class="cert-grid">
-            
             <div class="cert-card">
                 <div>
                     <div class="cert-icon">🛡️</div>
@@ -196,7 +198,6 @@
                 </div>
                 <a href="Cisco_Cybersecurity.pdf" target="_blank" class="cert-link">View Certificate ↗</a>
             </div>
-
             <div class="cert-card">
                 <div>
                     <div class="cert-icon">🌐</div>
@@ -205,7 +206,6 @@
                 </div>
                 <a href="Cisco_Networking_Basics.pdf" target="_blank" class="cert-link">View Certificate ↗</a>
             </div>
-
             <div class="cert-card">
                 <div>
                     <div class="cert-icon">🤖</div>
@@ -214,7 +214,6 @@
                 </div>
                 <a href="Cisco_Modern_AI.pdf" target="_blank" class="cert-link">View Certificate ↗</a>
             </div>
-
             <div class="cert-card">
                 <div>
                     <div class="cert-icon">💻</div>
@@ -223,7 +222,6 @@
                 </div>
                 <a href="Cisco_OS_Basics.pdf" target="_blank" class="cert-link">View Certificate ↗</a>
             </div>
-
             <div class="cert-card">
                 <div>
                     <div class="cert-icon">🎮</div>
@@ -232,23 +230,92 @@
                 </div>
                 <a href="Unity_Beginner_Scripting.pdf" target="_blank" class="cert-link">View Certificate ↗</a>
             </div>
-
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- NEW: Contact Section with Form -->
     <section id="contact">
         <h2 class="section-title">06. Contact</h2>
-        <div class="contact-container">
-            <p>Currently open to internship and graduate opportunities.</p>
-            <a href="mailto:mochinaronney099@gmail.com" class="contact-btn">Say Hello ↗</a>
-            
-            <div class="socials">
-                <a href="https://github.com/KGOSANA950" target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/in/motshina-ronney-65b81a314" target="_blank">LinkedIn</a>
+        
+        <div class="contact-wrapper">
+            <!-- Left Side: Info -->
+            <div class="contact-info">
+                <h3>Let's build something together.</h3>
+                <p>Currently open to internship and graduate opportunities. Feel free to reach out via the form or my socials.</p>
+                
+                <div class="contact-detail">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <span>Email</span>
+                        <a href="mailto:mochinaronney099@gmail.com">mochinaronney099@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <span>Location</span>
+                        <p>Pretoria, South Africa</p>
+                    </div>
+                </div>
+
+                <div class="socials">
+                    <a href="https://github.com/KGOSANA950" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/motshina-ronney-65b81a314" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <!-- Right Side: Form -->
+            <div class="contact-form-container">
+                <form id="contactForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Your Name</label>
+                            <input type="text" name="name" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label>Your Email</label>
+                            <input type="email" name="email" required placeholder="john@example.com">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Subject</label>
+                        <input type="text" name="subject" required placeholder="How can I help you?">
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea name="message" rows="5" required placeholder="Your message here..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Send Message</button>
+                    <p id="formStatus"></p>
+                </form>
             </div>
         </div>
     </section>
+
+    <!-- NEW: Floating Chat Box -->
+    <button class="chat-bubble" id="chatBubble">
+        <i class="fas fa-comment-dots"></i>
+    </button>
+
+    <div class="chat-panel" id="chatPanel">
+        <div class="chat-header">
+            <div class="chat-user">
+                <i class="fas fa-robot"></i>
+                <div>
+                    <h4>Ronney's Bot</h4>
+                    <span>Online</span>
+                </div>
+            </div>
+            <button id="closeChat"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="message bot">Hi there! 👋 I am Ronney's assistant. How can I help you today?</div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="chatInput" placeholder="Type a message...">
+            <button id="sendChat"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
 
     <!-- Link to your external JavaScript file -->
     <script src="script.js"></script>
