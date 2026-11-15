@@ -3,7 +3,7 @@
 A modern, interactive personal portfolio website built entirely with **Vanilla HTML, CSS, and JavaScript**. This project showcases a "cyberpunk" aesthetic, complete with a dynamic grid background, neon accents, pure CSS 3D animations, and a custom typewriter effect.
 
 ## 🚀 Live Demo
-👉 **[Click here to view the Live Portfolio]([dev-MOTSHINA-Portfolio])**
+👉 **[Click here to view the Live Portfolio]([https://kgosana950.github.io/dev-MOTSHINA-Portifolio/])**
 
 ## ✨ Features
 
