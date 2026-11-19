@@ -53,7 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const sendChat = document.getElementById('sendChat');
     const chatBody = document.getElementById('chatBody');
 
-    // Open/Close Chat
     chatBubble.addEventListener('click', () => {
         chatPanel.classList.toggle('open');
     });
@@ -62,12 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
         chatPanel.classList.remove('open');
     });
 
-    // Send Message
     function sendMessage() {
         const text = chatInput.value.trim();
         if (!text) return;
 
-        // Add User Message
         const userMsg = document.createElement('div');
         userMsg.className = 'message user';
         userMsg.textContent = text;
@@ -76,21 +73,19 @@ document.addEventListener('DOMContentLoaded', () => {
         chatInput.value = '';
         chatBody.scrollTop = chatBody.scrollHeight;
 
-        // Simulate Bot Response
         setTimeout(() => {
             const botMsg = document.createElement('div');
             botMsg.className = 'message bot';
             
-            // Simple auto-reply logic
             const lowerText = text.toLowerCase();
             if (lowerText.includes('project')) {
-                botMsg.textContent = "You can check out my projects in the 'Projects' section above! I built a Troll Calculator and a Weather App.";
+                botMsg.textContent = "You can check out my projects in the 'Projects' section above! I just launched Orixia.";
             } else if (lowerText.includes('contact') || lowerText.includes('email')) {
                 botMsg.textContent = "You can reach Ronney directly at mochinaronney099@gmail.com or use the contact form below.";
             } else if (lowerText.includes('hire') || lowerText.includes('job')) {
                 botMsg.textContent = "Ronney is currently open to internships and graduate roles! Send him a message via the form.";
             } else {
-                botMsg.textContent = "Thanks for your message! I am a simple bot. For a real response, please use the contact form below or email Ronney.";
+                botMsg.textContent = "Thanks for your message! For a real response, please use the contact form below or email Ronney.";
             }
 
             chatBody.appendChild(botMsg);
@@ -125,14 +120,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 formStatus.style.color = "#00ffcc";
                 contactForm.reset();
             } else {
-                response.json().then(data => {
-                    if (Object.hasOwn(data, 'errors')) {
-                        formStatus.textContent = data["errors"].map(error => error["message"]).join(", ");
-                    } else {
-                        formStatus.textContent = "Oops! There was a problem submitting your form.";
-                    }
-                    formStatus.style.color = "#e94f4f";
-                });
+                formStatus.textContent = "Oops! There was a problem submitting your form.";
+                formStatus.style.color = "#e94f4f";
             }
         }).catch(error => {
             formStatus.textContent = "Oops! There was a problem submitting your form.";
