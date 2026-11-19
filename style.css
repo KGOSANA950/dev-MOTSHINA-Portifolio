@@ -3,7 +3,7 @@
     --bg-color: #0a0a0a;
     --text-main: #e0e0e0;
     --text-muted: #888888;
-    --accent: #00ffcc; /* Neon Cyan */
+    --accent: #00ffcc;
     --accent-glow: rgba(0, 255, 204, 0.3);
     --grid-color: rgba(255, 255, 255, 0.05);
     --font-mono: 'Fira Code', monospace;
@@ -151,4 +151,11 @@ section { padding: 100px 10%; border-top: 1px solid rgba(255, 255, 255, 0.05); }
     .contact-wrapper { grid-template-columns: 1fr; padding: 20px; }
     .form-row { grid-template-columns: 1fr; }
     .chat-panel { width: 90%; right: 5%; bottom: 90px; }
+}
+
+/* --- ORIXIA SPECIAL HOVER --- */
+.project-item[style*="border-color: #d4af37"]:hover {
+    background: rgba(212, 175, 55, 0.05) !important;
+    transform: translateX(10px);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
 }
